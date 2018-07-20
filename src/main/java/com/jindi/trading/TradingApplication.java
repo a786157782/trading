@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 //@RestController
-//@EnableCaching
+@EnableCaching
 public class TradingApplication {
 
 	public static void main(String[] args) {
