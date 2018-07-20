@@ -33,7 +33,12 @@ public class TestController {
 	//String redis存储测试
 	@RequestMapping("/setValue")
 	public JsonResult setValue(){
-		if(!template.hasKey("dongguai")){
+		Object b = template.hasKey("dongguai");
+		if (null == b){
+			return new JsonResult(ResultCode.SUCCESS,"请求成功","redis出错");
+		}
+
+		if(!(Boolean)b){
 			template.opsForValue().append("dongguai", "我是洞拐");
 			return new JsonResult(ResultCode.SUCCESS,"请求成功","使用redis缓存保存数据成功");
 		}else{
@@ -46,8 +51,12 @@ public class TestController {
 	//String redis取值测试
 	@RequestMapping("/getValue")
 	public JsonResult getValue() {
+		Object b = template.hasKey("dongguai");
+		if (null == b){
+			return new JsonResult(ResultCode.SUCCESS,"请求成功","redis出错");
+		}
 
-		if (!template.hasKey("dongguai")) {
+		if (!(Boolean)b) {
 			return new JsonResult(ResultCode.SUCCESS,"请求成功","key不存在，请先保存数据");
 		} else {
 			String dongguai = template.opsForValue().get("dongguai");//根据key获取缓存中的val

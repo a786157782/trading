@@ -1,32 +1,33 @@
 package com.jindi.trading.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "users")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String id;
+	@Column(name = "id")
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private int id;
 
+	@Column(name = "name")
 	private String name;
 
+	@Column(name = "age")
 	private int age;
 
 	public User() {
 		super();
 	}
 
-	public User(String id, String name, int age) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.age = age;
-	}
-
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

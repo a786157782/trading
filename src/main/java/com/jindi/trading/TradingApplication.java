@@ -9,8 +9,8 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+//,scanBasePackages={"com.jindi.trading.repository"}
+@SpringBootApplication()
 //@RestController
 @EnableCaching
 public class TradingApplication {

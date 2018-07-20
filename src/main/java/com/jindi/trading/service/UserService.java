@@ -6,8 +6,10 @@ import org.springframework.cache.annotation.Cacheable;
 
 public interface UserService {
 
-	User getUser(String id);
+	User getUser(int id);
 
 
-	void deleteUser(String id);
+	void deleteUser(int id);
+
+	User findUserByName(String name);
 }
