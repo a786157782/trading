@@ -1,5 +1,5 @@
 
-package com.jindi.trading.utils;
+package com.jindi.trading.config;
 
 
 import java.lang.reflect.Method;
@@ -10,8 +10,6 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jindi.trading.utils.JsonResult;
-import com.jindi.trading.utils.ResultCode;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

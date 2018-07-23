@@ -1,4 +1,4 @@
-package com.jindi.trading.utils;
+package com.jindi.trading.config;
 
 public class JsonResult {
 	private String code;

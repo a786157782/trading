@@ -1,4 +1,4 @@
-package com.jindi.trading.utils;
+package com.jindi.trading.config;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

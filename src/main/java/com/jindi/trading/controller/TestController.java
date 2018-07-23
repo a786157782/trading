@@ -1,7 +1,7 @@
 package com.jindi.trading.controller;
 
-import com.jindi.trading.utils.JsonResult;
-import com.jindi.trading.utils.ResultCode;
+import com.jindi.trading.config.JsonResult;
+import com.jindi.trading.config.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
