@@ -3,6 +3,7 @@ package com.jindi.trading.controller;
 import com.jindi.trading.utils.JsonResult;
 import com.jindi.trading.utils.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,13 @@ public class TestController {
 	@Autowired
 	public TestController(StringRedisTemplate template) {
 		this.template = template;
+	}
+
+
+	private RedisTemplate<String, Object> redisTemplate;
+
+	public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
+		this.redisTemplate = redisTemplate;
 	}
 
 
