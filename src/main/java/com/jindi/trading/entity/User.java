@@ -10,7 +10,7 @@ public class User implements Serializable {
 
 	@Column(name = "id")
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 
 	@Column(name = "name")
@@ -51,4 +51,6 @@ public class User implements Serializable {
 		this.name = name;
 		this.age = age;
 	}
+
+
 }

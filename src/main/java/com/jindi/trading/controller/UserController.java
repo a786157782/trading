@@ -63,4 +63,31 @@ public class UserController {
 		redisTemplate.opsForList().leftPush("list",list);
 	}
 
+
+	@RequestMapping("/putListUser")
+	public List<User> putListUser(){
+		return userService.putListUser();
+	}
+
+
+	@RequestMapping("addUser")
+	public void addUser(){
+		User user = new User("zhangsan",1);
+		user.setId(2);
+		userService.addUser(user);
+	}
+
+	@RequestMapping("updateUser")
+	public void updateUser(){
+		User user = new User("zhangsan",1);
+		user.setId(1);
+		userService.updateUser(user);
+	}
+
+	@RequestMapping("/getTotalUser")
+	public List<User> getTotalUser(){
+		//List<User> list = (List<User>)redisTemplate.
+		return null;
+	}
+
 }
