@@ -27,6 +27,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
+@Permission
 public class ControllerInterceptor {
 	private static final Logger logger = LoggerFactory.getLogger(ControllerInterceptor.class);
 
