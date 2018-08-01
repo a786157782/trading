@@ -23,5 +23,7 @@ public interface UserService {
 
 	void updateUser(User user);
 
+	List<User> testNative();
+
 
 }

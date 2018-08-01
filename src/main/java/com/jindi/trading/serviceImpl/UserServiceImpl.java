@@ -111,4 +111,10 @@ public class UserServiceImpl implements UserService {
 		System.out.println("redis update user");
 
 	}
+
+
+	@Override
+	public List<User> testNative() {
+		return userRepository.listUsers();
+	}
 }

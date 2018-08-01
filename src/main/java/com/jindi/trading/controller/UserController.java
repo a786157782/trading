@@ -87,7 +87,9 @@ public class UserController {
 	@RequestMapping("/getTotalUser")
 	public List<User> getTotalUser(){
 		//List<User> list = (List<User>)redisTemplate.
-		return null;
+
+		List<User> list = userService.testNative();
+		return list;
 	}
 
 }
