@@ -1,12 +1,15 @@
 package com.jindi.trading.controller;
 
 import com.jindi.trading.config.JsonResult;
+import com.jindi.trading.config.Permission;
 import com.jindi.trading.config.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/web")
@@ -32,8 +35,10 @@ public class TestController {
 
 	//连接测试
 	@RequestMapping("/liupia")
-	public JsonResult sayHello(){
+	@Permission
+	public JsonResult sayHello(HttpServletRequest request){
 		Object o = "啦啦啦";
+		request.getSession();
 		return new JsonResult(ResultCode.SUCCESS,"请求成功",o);
 
 	}
