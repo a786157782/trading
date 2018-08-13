@@ -25,5 +25,7 @@ public interface UserService {
 
 	List<User> testNative();
 
+	void judgeWhich();
+
 
 }

@@ -1,8 +1,12 @@
 package com.jindi.trading.controller;
 
 import com.jindi.trading.entity.User;
+import com.jindi.trading.repository.UserRepository;
 import com.jindi.trading.service.UserService;
+import com.jindi.trading.serviceImpl.UserServiceImpl;
+import com.jindi.trading.serviceImpl.UserServiceImpl2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,17 +17,28 @@ import java.util.List;
 
 @RestController
 public class UserController {
-	//@Autowired
-	private final  UserService userService;
+/*	@Autowired*/
+	private final UserService userService;
 
+	private final UserService userService2;
 
-	@Autowired
-	public UserController(UserService userService){
+	private final UserRepository userRepository;
+
+/*	@Autowired
+	public UserController(UserServiceImpl userService,UserServiceImpl2 userService2){
 		this.userService = userService;
-	}
+		this.userService2 = userService2;
+	}*/
 
 
 	private RedisTemplate<String, Object> redisTemplate;
+
+	@Autowired
+	public UserController(@Qualifier("userService") UserService userService, @Qualifier("userService2") UserService userService2, UserRepository userRepository) {
+		this.userService = userService;
+		this.userService2 = userService2;
+		this.userRepository = userRepository;
+	}
 
 	@Autowired
 	public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
@@ -92,4 +107,16 @@ public class UserController {
 		return list;
 	}
 
+
+	@RequestMapping("/testDel")
+	public void testDel(){
+		userRepository.deleteById(1);
+	}
+
+
+	@RequestMapping("/judgeWhich")
+	public void judgeWhich(){
+		userService.judgeWhich();
+		userService2.judgeWhich();
+	}
 }

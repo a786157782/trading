@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,4 +17,7 @@ public interface UserRepository  extends JpaRepository<User,Long> {
 
 	@Query(value = "select u.id,u.name from users u",nativeQuery = true)
 	List<User> listUsers();
+
+	@Transactional
+	void deleteById(Integer id);
 }

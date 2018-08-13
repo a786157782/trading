@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
 	@Autowired
@@ -116,5 +116,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> testNative() {
 		return userRepository.listUsers();
+	}
+
+
+	@Override
+	public void judgeWhich() {
+		System.out.println("this is method 1");
 	}
 }
