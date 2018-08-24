@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.jindi.trading.redislock.DistributedLockAutoConfiguration,\
+com.jindi.trading.redislock.DistributedLockAspectConfiguration

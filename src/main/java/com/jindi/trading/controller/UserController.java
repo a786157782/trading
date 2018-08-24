@@ -1,10 +1,12 @@
 package com.jindi.trading.controller;
 
 import com.jindi.trading.entity.User;
+import com.jindi.trading.redislock.RedisLock;
 import com.jindi.trading.repository.UserRepository;
 import com.jindi.trading.service.UserService;
 import com.jindi.trading.serviceImpl.UserServiceImpl;
 import com.jindi.trading.serviceImpl.UserServiceImpl2;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -114,9 +116,20 @@ public class UserController {
 	}
 
 
+	//测试多实现类注入
 	@RequestMapping("/judgeWhich")
 	public void judgeWhich(){
 		userService.judgeWhich();
 		userService2.judgeWhich();
 	}
+
+	//测试分布式锁
+	@RequestMapping("testRedisLock")
+	@RedisLock
+	public void testRedisLock(){
+
+		System.out.println("Lock");
+	}
+
+
 }

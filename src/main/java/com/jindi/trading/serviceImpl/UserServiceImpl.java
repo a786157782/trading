@@ -1,6 +1,7 @@
 package com.jindi.trading.serviceImpl;
 
 import com.jindi.trading.entity.User;
+import com.jindi.trading.redislock.RedisLock;
 import com.jindi.trading.repository.UserRepository;
 import com.jindi.trading.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

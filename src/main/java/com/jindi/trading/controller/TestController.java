@@ -3,6 +3,7 @@ package com.jindi.trading.controller;
 import com.jindi.trading.config.JsonResult;
 import com.jindi.trading.config.Permission;
 import com.jindi.trading.config.ResultCode;
+import javafx.print.Collation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
+import java.util.Collection;
+import java.util.Enumeration;
 
 @RestController
 @RequestMapping("/web")
@@ -18,6 +22,10 @@ public class TestController {
 
 	//使用构造器注入String redis
 	private final StringRedisTemplate template;
+
+	@Autowired
+	private HttpServletRequest request;
+
 
 	@Autowired
 	public TestController(StringRedisTemplate template) {
@@ -77,4 +85,30 @@ public class TestController {
 		}
 
 	}
+
+
+	@RequestMapping("/getIp")
+	public void getIp(String accept){
+
+		System.out.println(request.getSession());
+		System.out.println(request.getHeaderNames().toString());
+		System.out.println(request.getRemoteUser());
+
+		Enumeration<String> stringEnumeration = request.getHeaderNames();
+
+		System.out.println("stringEnumeration的遍历");
+		while(stringEnumeration.hasMoreElements()){
+			String str = (String)stringEnumeration.nextElement();
+
+			System.out.println("str:"+str+"=====str的内容"+request.getHeader(str));
+		}
+
+
+
+	//	Collection<Part> collection = request.getParts();
+
+
+
+	}
+
 }

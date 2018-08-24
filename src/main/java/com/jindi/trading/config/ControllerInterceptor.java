@@ -35,7 +35,7 @@ public class ControllerInterceptor {
 	private String env;
 
 	/**
-	 * 定义拦截规则：拦截com.xjj.web.controller包下面的所有类中，有@RequestMapping注解的方法。
+	 * 定义拦截规则：拦截com.jindi.trading.controller包下面的所有类中，有@RequestMapping注解的方法。
 	 */
 	@Pointcut("execution(* com.jindi.trading.controller..*(..)) && @annotation(org.springframework.web.bind.annotation.RequestMapping)")
 	public void controllerMethodPointcut(){}
