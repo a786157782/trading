@@ -3,6 +3,7 @@ package com.jindi.trading.controller;
 import com.jindi.trading.config.JsonResult;
 import com.jindi.trading.config.Permission;
 import com.jindi.trading.config.ResultCode;
+import com.jindi.trading.utils.RedisTool;
 import javafx.print.Collation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -26,6 +27,9 @@ public class TestController {
 
 	@Autowired
 	private HttpServletRequest request;
+
+	@Autowired
+	private RedisTool redisTool;
 
 
 	@Autowired
@@ -121,7 +125,7 @@ public class TestController {
 	public void testCache(){
 
 		//Jedis jedis
-		//redisTemplate.
+		redisTool.getRedisLock("testKey");
 
 	}
 
