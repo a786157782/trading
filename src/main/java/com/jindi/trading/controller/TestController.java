@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import redis.clients.jedis.Jedis;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
@@ -87,6 +88,7 @@ public class TestController {
 	}
 
 
+
 	@RequestMapping("/getIp")
 	public void getIp(String accept){
 
@@ -110,5 +112,18 @@ public class TestController {
 
 
 	}
+
+
+
+
+
+	@RequestMapping("/testCache")
+	public void testCache(){
+
+		//Jedis jedis
+		//redisTemplate.
+
+	}
+
 
 }
